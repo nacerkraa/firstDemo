@@ -1,0 +1,32 @@
+<div class="p-3">
+    <div class="card">
+        <div class="card-body">
+            <h3>Products Components</h3>
+            <div>
+                <input [(ngModel)]="keyWords" type="text" name="" id="">
+                <h1>{{keyWords}}</h1>
+                <button  class="btn btn-outline-success">Search</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th><th>Name</th><th>Price</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="products">
+                @for (product of products; track $index) {
+                    <tr>
+                            <td>{{product.id}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}}</td>
+                            <td>
+                                <button (click)="deleteProduct($index)" class="btn btn-danger">Delete</button>
+                            </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
